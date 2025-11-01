@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milatery Factory</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="panel">
+        <div class="title-stack">
+          <h1>Milatery Factory</h1>
+          <p class="subtitle">Prototype your arsenal and take the fight to the enemy.</p>
+        </div>
+        <div class="search-block">
+          <label for="weapon-search">Build a weapon</label>
+          <div class="search-row">
+            <input
+              id="weapon-search"
+              type="search"
+              placeholder="Type a weapon name…"
+              aria-label="Search for weapons to build"
+            />
+            <button id="build-button" type="button">Build</button>
+          </div>
+          <div id="search-results" class="search-results" role="listbox" aria-live="polite"></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel" aria-labelledby="factory-heading">
+          <h2 id="factory-heading">Fabrication Bay</h2>
+          <p class="panel-description">
+            Configure a design in the search bar to construct a new weapon. Completed builds appear here before
+            being transferred to your inventory.
+          </p>
+          <div id="factory-output" class="factory-output" aria-live="polite"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="inventory-heading">
+          <h2 id="inventory-heading">Inventory</h2>
+          <p class="panel-description">
+            Every completed weapon is stored here. Your total firepower updates automatically.
+          </p>
+          <ul id="inventory-list" class="inventory-list"></ul>
+          <div class="stats-row">
+            <span>Total Damage:</span>
+            <strong id="total-damage">0</strong>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="battle-heading">
+          <h2 id="battle-heading">Mission Control</h2>
+          <p class="panel-description">
+            Deploy your inventory against hostile forces. Enemies respond dynamically to your loadout.
+          </p>
+          <div class="enemy-card" id="enemy-card">
+            <h3 id="enemy-name"></h3>
+            <p id="enemy-description"></p>
+            <div class="stats-grid">
+              <div>
+                <span>Armor</span>
+                <strong id="enemy-armor"></strong>
+              </div>
+              <div>
+                <span>Strength</span>
+                <strong id="enemy-strength"></strong>
+              </div>
+            </div>
+          </div>
+          <button id="engage-button" type="button">Engage Enemy</button>
+          <div id="battle-log" class="battle-log" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="battle-overlay" class="battle-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="battle-overlay-title">
+      <div class="battle-stage">
+        <header class="battle-stage__header">
+          <h2 id="battle-overlay-title">Engagement Zone</h2>
+          <p class="battle-stage__instructions">WASD to move · Space to fire · Esc to retreat</p>
+        </header>
+        <canvas id="battle-canvas" width="900" height="520" aria-label="Combat field"></canvas>
+        <div class="battle-stage__footer">
+          <div class="battle-stage__status" id="battle-stage-status" aria-live="polite"></div>
+          <button id="exit-battle" type="button" class="ghost-button">Leave Mission</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
