@@ -96,35 +96,7 @@ const enemyName = document.querySelector("#enemy-name");
 const enemyDescription = document.querySelector("#enemy-description");
 const enemyArmor = document.querySelector("#enemy-armor");
 const enemyStrength = document.querySelector("#enemy-strength");
-const battleOverlay = document.querySelector("#battle-overlay");
-const battleCanvas = document.querySelector("#battle-canvas");
-const battleCtx = battleCanvas ? battleCanvas.getContext("2d") : null;
-const battleStageStatus = document.querySelector("#battle-stage-status");
-const exitBattleButton = document.querySelector("#exit-battle");
 
-const platformGame = {
-  active: false,
-  running: false,
-  status: "idle",
-  keys: {
-    left: false,
-    right: false,
-    up: false,
-    down: false,
-  },
-  projectiles: [],
-  enemyProjectiles: [],
-  lastShot: 0,
-  enemyLastShot: 0,
-  lastTimestamp: 0,
-  player: null,
-  enemy: null,
-  bloodPool: null,
-  opponentName: "",
-};
-
-const GRAVITY = 1600;
-const PLAYER_FRICTION = 0.82;
 
 function formatWeapon(weapon) {
   const container = document.createElement("article");
