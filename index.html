@@ -75,6 +75,15 @@
       </main>
     </div>
 
+    <div id="battle-arena" aria-hidden="true">
+      <canvas id="arena-canvas" width="960" height="540" role="img" aria-label="Battle simulation"></canvas>
+      <div class="arena-hud" role="status" aria-live="polite">
+        <div class="hud-label">Operative Vitality: <span id="player-health">0</span></div>
+        <div class="hud-label">Hostile Integrity: <span id="enemy-health">0</span></div>
+        <p class="hud-instructions">Use WASD or arrow keys to move/jump. Press Space to strike.</p>
+      </div>
+    </div>
+
     <script src="script.js" defer></script>
   </body>
 </html>
